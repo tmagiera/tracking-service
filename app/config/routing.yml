@@ -1,0 +1,7 @@
+square_enix_rest:
+    resource: "@SquareEnixRestBundle/Resources/config/routing.yml"
+    prefix:   /
+
+_nelmio_api:
+  resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+  prefix:   /api/doc

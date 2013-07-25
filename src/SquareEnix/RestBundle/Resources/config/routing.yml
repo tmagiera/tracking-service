@@ -1,0 +1,14 @@
+rest_track_put:
+    pattern:  /v1/track/{activityId}/{userId}/{event}
+    defaults: { _controller: SquareEnixRestBundle:Track:put, _format:  json }
+    methods: [PUT]
+
+rest_user_get:
+    pattern:  /v1/user/{userId}
+    defaults: { _controller: SquareEnixRestBundle:User:get, _format:  json }
+    methods: [GET]
+
+rest_activity_get:
+    pattern:  /v1/activity/{activityId}
+    defaults: { _controller: SquareEnixRestBundle:Activity:get, _format:  json }
+    methods: [GET]
