@@ -1,6 +1,3 @@
-nelmio_api_doc:
-    name: Restfull API for SquareEnix
-
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
@@ -68,3 +65,15 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
+nelmio_api_doc:
+    name: Restfull API for SquareEnix
+
+doctrine_mongodb:
+    connections:
+        default:
+            server:   mongodb://symfony:symfony@ds037368.mongolab.com:37368
+            options: {}
+    default_database: squareenix
+    document_managers:
+        default:
+            auto_mapping: true

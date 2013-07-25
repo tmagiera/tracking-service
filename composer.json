@@ -21,7 +21,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/rest-bundle": "0.13.*@dev",
         "jms/serializer-bundle": "0.12.*@dev",
-        "nelmio/api-doc-bundle": "2.3.*@dev"
+        "nelmio/api-doc-bundle": "2.3.*@dev",
+        "doctrine/mongodb-odm-bundle": "3.0.*@dev"
     },
     "scripts": {
         "post-install-cmd": [
@@ -42,7 +43,7 @@
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
