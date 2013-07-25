@@ -1,6 +1,6 @@
 rest_track_put:
     pattern:  /v1/track/{activityId}/{userId}/{event}
-    defaults: { _controller: SquareEnixRestBundle:Track:put, _format:  json }
+    defaults: { _controller: SquareEnixRestBundle:Track:put}
     methods: [PUT]
 
 rest_user_get:

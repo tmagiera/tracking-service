@@ -1,48 +1,38 @@
 <?php
 
-namespace SquareEnix\RestBundle\Entity;
+namespace SquareEnix\RestBundle\Document;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
  * User
  *
- * @ORM\Table()
- * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
+ * @MongoDB\Document
  */
 class User
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @MongoDB\Id
      */
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="activity_counter", type="integer")
+     * @MongoDB\Int
      */
     private $activityCounter;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetimetz")
+     * @MongoDB\Timestamp
      */
     private $timestamp;
 
     /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
+     * @MongoDB\PrePersist
+     * @MongoDB\PreUpdate
      */
     public function onPreUpdate()
     {
-        $this->timestamp = new \DateTime();
+        $this->timestamp = time();
     }
 
     /**

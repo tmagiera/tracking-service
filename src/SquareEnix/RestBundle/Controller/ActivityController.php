@@ -3,8 +3,8 @@
 namespace SquareEnix\RestBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use SquareEnix\RestBundle\Entity\Activity;
-use SquareEnix\RestBundle\Entity\User;
+use SquareEnix\RestBundle\Document\Activity;
+use SquareEnix\RestBundle\Document\User;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 

@@ -1,76 +1,58 @@
 <?php
 
-namespace SquareEnix\RestBundle\Entity;
+namespace SquareEnix\RestBundle\Document;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
  * Track
  *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="SquareEnix\RestBundle\Entity\TrackRepository")
- * @ORM\HasLifecycleCallbacks
+ * @MongoDB\Document
  */
 class Track
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @MongoDB\Id
      */
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="activity_id", type="string")
+     * @MongoDB\String
      */
     private $activityId;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="user_id", type="integer")
+     * @MongoDB\Int
      */
     private $userId;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="event", type="string", length=16)
+     * @MongoDB\String
      */
     private $event;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timestamp", type="datetime")
+     * @MongoDB\Timestamp
      */
     private $timestamp;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="user_agent", type="string", length=255)
+     * @MongoDB\String
      */
     private $userAgent;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="user_ip", type="string", length=255)
+     * @MongoDB\String
      */
     private $userIp;
 
     /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
+     * @MongoDB\PrePersist
+     * @MongoDB\PreUpdate
      */
     public function onPreUpdate()
     {
-        $this->timestamp = new \DateTime();
+        $this->timestamp = time();
     }
 
     /**

@@ -3,9 +3,9 @@
 namespace SquareEnix\RestBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use SquareEnix\RestBundle\Entity\Track;
-use SquareEnix\RestBundle\Entity\Activity;
-use SquareEnix\RestBundle\Entity\User;
+use SquareEnix\RestBundle\Document\Track;
+use SquareEnix\RestBundle\Document\Activity;
+use SquareEnix\RestBundle\Document\User;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
@@ -43,7 +43,7 @@ class TrackController extends Controller
         $user = new User();
         $user->setActivityCounter(1);
 
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->get('doctrine_mongodb')->getManager();
         $em->persist($track);
         $em->persist($activity);
         $em->persist($user);

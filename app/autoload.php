@@ -1,8 +1,7 @@
 <?php
 
-use Composer\Autoload\ClassLoader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver;
+use Composer\Autoload\ClassLoader;
 
 /**
  * @var $loader ClassLoader
@@ -13,5 +12,8 @@ $loader->add('FOS', __DIR__.'/../vendor/bundles');
 $loader->add('FOS\\Rest', __DIR__.'/../vendor/fos');
 
 AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
+
+use Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver;
+AnnotationDriver::registerAnnotationClasses();
 
 return $loader;

@@ -71,7 +71,7 @@ nelmio_api_doc:
 doctrine_mongodb:
     connections:
         default:
-            server:   mongodb://symfony:symfony@ds037368.mongolab.com:37368
+            server:   mongodb://symfony:symfony@ds037368.mongolab.com:37368/squareenix
             options: {}
     default_database: squareenix
     document_managers:
