@@ -3,6 +3,7 @@
 namespace SquareEnix\RestBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Track
@@ -18,16 +19,20 @@ class Track
 
     /**
      * @MongoDB\String
+     * @Assert\Length(min="4",max="9")
+     * @Assert\Regex("/^[0-9a-zA-Z]+$/")
      */
     private $activityId;
 
     /**
      * @MongoDB\Int
+     * @Assert\NotNull
      */
     private $userId;
 
     /**
      * @MongoDB\String
+     * @Assert\NotNull
      */
     private $event;
 
@@ -43,6 +48,7 @@ class Track
 
     /**
      * @MongoDB\String
+     * @Assert\Ip
      */
     private $userIp;
 

@@ -7,7 +7,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
  * Activity
  *
- * @MongoDB\Document
+ * @MongoDB\EmbeddedDocument
  */
 class Activity
 {

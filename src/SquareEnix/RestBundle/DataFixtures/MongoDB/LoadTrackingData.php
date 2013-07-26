@@ -15,7 +15,7 @@ class LoadTrackingData implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        for ($i=0;$i<100;$i++) {
+        for ($i=0;$i<30;$i++) {
             $track = new Track();
             $track->setActivityId('actId'.rand(1,3));
             $track->setUserId('usrId'.rand(0,100));

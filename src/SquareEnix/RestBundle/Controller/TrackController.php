@@ -35,7 +35,14 @@ class TrackController extends Controller
         $track->setEvent($event);
         $track->setUserAgent($this->getRequest()->headers->get('USER_AGENT'));
         $track->setUserIp($this->getRequest()->getClientIp());
-        // TODO: validation
+
+        $validator = $this->get('validator');
+        $errors = $validator->validate($track);
+        if (count($errors) > 0) {
+            $response = new JsonResponse();
+            $response->setStatusCode(400);
+            return $response;
+        }
 
         $activity = new Activity();
         $activity->setEventCounter(1);

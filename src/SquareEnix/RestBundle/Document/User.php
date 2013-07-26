@@ -3,16 +3,18 @@
 namespace SquareEnix\RestBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
  *
- * @MongoDB\Document
+ * @MongoDB\EmbeddedDocument
  */
 class User
 {
     /**
      * @MongoDB\Id
+     * @Assert\Type(type="integer")
      */
     private $id;
 
