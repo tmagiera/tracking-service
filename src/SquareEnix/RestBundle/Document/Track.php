@@ -33,6 +33,7 @@ class Track
     /**
      * @MongoDB\String
      * @Assert\NotNull
+     * @Assert\Choice(choices = {"enter", "click", "exit"})
      */
     private $event;
 
