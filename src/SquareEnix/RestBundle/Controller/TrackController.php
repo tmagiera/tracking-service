@@ -45,7 +45,7 @@ class TrackController extends Controller
         }
 
         $activity = new Activity();
-        $activity->setEventCounter(1);
+        $activity->setEvent()
 
         $user = new User();
         $user->setActivityCounter(1);

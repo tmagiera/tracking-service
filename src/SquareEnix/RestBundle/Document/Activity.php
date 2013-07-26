@@ -3,11 +3,12 @@
 namespace SquareEnix\RestBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use SquareEnix\RestBundle\Document\Event;
 
 /**
  * Activity
  *
- * @MongoDB\EmbeddedDocument
+ * @MongoDB\Document
  */
 class Activity
 {
@@ -17,24 +18,35 @@ class Activity
     private $id;
 
     /**
-     * @MongoDB\Int
+     * @MongoDB\Timestamp
      */
-    private $eventCounter;
+    private $createdAt;
 
     /**
      * @MongoDB\Timestamp
      */
-    private $timestamp;
+    private $updatedAt;
+
+    /**
+     * @MongoDB\EmbedOne(targetDocument="Event")
+     */
+    private $event;
 
     /**
      * @MongoDB\PrePersist
+     */
+    public function onPrePersist()
+    {
+        $this->createdAt = time();
+    }
+
+    /**
      * @MongoDB\PreUpdate
      */
     public function onPreUpdate()
     {
-        $this->timestamp = time();
+        $this->updatedAt = time();
     }
-
     /**
      * Get id
      *
@@ -46,48 +58,68 @@ class Activity
     }
 
     /**
-     * Set eventCounter
+     * Set createdAt
      *
-     * @param integer $eventCounter
-     * @return Activity
+     * @param timestamp $createdAt
+     * @return self
      */
-    public function setEventCounter($eventCounter)
+    public function setCreatedAt($createdAt)
     {
-        $this->eventCounter = $eventCounter;
-    
+        $this->createdAt = $createdAt;
         return $this;
     }
 
     /**
-     * Get eventCounter
+     * Get createdAt
      *
-     * @return integer 
+     * @return timestamp $createdAt
      */
-    public function getEventCounter()
+    public function getCreatedAt()
     {
-        return $this->eventCounter;
+        return $this->createdAt;
     }
 
     /**
-     * Set timestamp
+     * Set updatedAt
      *
-     * @param \DateTime $timestamp
-     * @return Activity
+     * @param timestamp $updatedAt
+     * @return self
      */
-    public function setTimestamp($timestamp)
+    public function setUpdatedAt($updatedAt)
     {
-        $this->timestamp = $timestamp;
-    
+        $this->updatedAt = $updatedAt;
         return $this;
     }
 
     /**
-     * Get timestamp
+     * Get updatedAt
      *
-     * @return \DateTime 
+     * @return timestamp $updatedAt
      */
-    public function getTimestamp()
+    public function getUpdatedAt()
     {
-        return $this->timestamp;
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set event
+     *
+     * @param Event $event
+     * @return self
+     */
+    public function setEvent(Event $event)
+    {
+        $this->event = $event;
+        return $this;
+    }
+
+    /**
+     * Get event
+     *
+     * @return Event $event
+     */
+    public function getEvent()
+    {
+        return $this->event;
     }
 }
