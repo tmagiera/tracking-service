@@ -11,6 +11,7 @@
         "symfony/symfony": "2.3.*",
         "doctrine/orm": ">=2.2.3,<2.4-dev",
         "doctrine/doctrine-bundle": "1.2.*",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
         "twig/extensions": "1.0.*",
         "symfony/assetic-bundle": "2.3.*",
         "symfony/swiftmailer-bundle": "2.3.*",
@@ -22,7 +23,8 @@
         "friendsofsymfony/rest-bundle": "0.13.*@dev",
         "jms/serializer-bundle": "0.12.*@dev",
         "nelmio/api-doc-bundle": "2.3.*@dev",
-        "doctrine/mongodb-odm-bundle": "3.0.*@dev"
+        "doctrine/mongodb-odm-bundle": "3.0.*@dev",
+        "phpunit/phpunit": "dev-configuration"
     },
     "scripts": {
         "post-install-cmd": [
