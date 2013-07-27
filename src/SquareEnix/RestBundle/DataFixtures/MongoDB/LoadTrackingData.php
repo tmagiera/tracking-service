@@ -6,7 +6,9 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use SquareEnix\RestBundle\Document\Track;
 use SquareEnix\RestBundle\Document\User;
+use SquareEnix\RestBundle\Document\UserEvent;
 use SquareEnix\RestBundle\Document\Activity;
+use SquareEnix\RestBundle\Document\ActivityEvent;
 
 class LoadTrackingData implements FixtureInterface
 {
@@ -23,11 +25,18 @@ class LoadTrackingData implements FixtureInterface
             $track->setUserAgent('symfonyFixture');
             $track->setUserIp('127.0.0.1');
 
+            $activityEvent = new ActivityEvent();
+            $activityEvent->setEventName($track->getEvent());
+            $activityEvent->setEventCounter(1);
             $activity = new Activity();
-            $activity->setEventCounter(rand(1,50));
+            $activity->setEvent($activityEvent);
 
+            $userEvent = new UserEvent();
+            $userEvent->setEventName($track->getEvent());
+            $userEvent->setActivityId($track->getActivityId());
+            $userEvent->setEventCounter(1);
             $user = new User();
-            $user->setActivityCounter(rand(1,5));
+            $user->setEvent($userEvent);
 
             $manager->persist($track);
             $manager->persist($activity);

@@ -5,7 +5,9 @@ namespace SquareEnix\RestBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use SquareEnix\RestBundle\Document\Track;
 use SquareEnix\RestBundle\Document\Activity;
+use SquareEnix\RestBundle\Document\ActivityEvent;
 use SquareEnix\RestBundle\Document\User;
+use SquareEnix\RestBundle\Document\UserEvent;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
@@ -44,8 +46,12 @@ class TrackController extends Controller
             return $response;
         }
 
+        $event = new ActivityEvent();
+        $event->setEventName($event);
+        $event->setEventCounter(1);
+
         $activity = new Activity();
-        $activity->setEvent()
+        $activity->setEvent($event);
 
         $user = new User();
         $user->setActivityCounter(1);

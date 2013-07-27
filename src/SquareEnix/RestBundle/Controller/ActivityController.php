@@ -4,7 +4,7 @@ namespace SquareEnix\RestBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use SquareEnix\RestBundle\Document\Activity;
-use SquareEnix\RestBundle\Document\User;
+use SquareEnix\RestBundle\Document\ActivityEvent;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 

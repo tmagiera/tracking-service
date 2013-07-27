@@ -6,11 +6,11 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * EventEnter
+ * ActivityEvent
  *
  * @MongoDB\EmbeddedDocument
  */
-class Event
+class ActivityEvent
 {
     /**
      * @MongoDB\Id

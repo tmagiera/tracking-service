@@ -3,7 +3,7 @@
 namespace SquareEnix\RestBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
-use SquareEnix\RestBundle\Document\Event;
+use SquareEnix\RestBundle\Document\UserEvent;
 
 /**
  * User
@@ -28,7 +28,7 @@ class User
     private $updatedAt;
 
     /**
-     * @MongoDB\EmbedOne(targetDocument="Event")
+     * @MongoDB\EmbedOne(targetDocument="UserEvent")
      */
     private $event;
 
@@ -104,10 +104,10 @@ class User
     /**
      * Set event
      *
-     * @param Event $event
+     * @param UserEvent $event
      * @return self
      */
-    public function setEvent(Event $event)
+    public function setEvent(UserEvent $event)
     {
         $this->event = $event;
         return $this;
@@ -116,7 +116,7 @@ class User
     /**
      * Get event
      *
-     * @return Event $event
+     * @return UserEvent $event
      */
     public function getEvent()
     {
